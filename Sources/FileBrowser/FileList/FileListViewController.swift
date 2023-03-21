@@ -24,7 +24,7 @@ class FileListViewController: UIViewController {
     var sections: [[FBFile]] = []
     var allowEditing: Bool = false
     var showSize: Bool = false
-
+    var isDisplaySearchBar = false
     // Search controller
     var filteredFiles = [FBFile]()
     let searchController: UISearchController = {
@@ -54,7 +54,7 @@ class FileListViewController: UIViewController {
         self.title = initialPath.lastPathComponent
         self.allowEditing = allowEditing
         self.showSize = showSize
-
+        
         // Set search controller delegates
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -90,7 +90,10 @@ class FileListViewController: UIViewController {
         prepareData()
         
         // Set search bar
-        tableView.tableHeaderView = searchController.searchBar
+        if isDisplaySearchBar {
+            tableView.tableHeaderView = searchController.searchBar
+        }
+        
         
         // Register for 3D touch
         self.registerFor3DTouch()
