@@ -22,6 +22,12 @@ open class FileBrowser: UINavigationController {
         }
     }
     
+    open var fileExtensions: [String]? {
+        didSet {
+            parser.fileExtensions = fileExtensions
+        }
+    }
+    
     /// File paths to exclude from the file browser.
     open var excludesFilepaths: [URL]? {
         didSet {
