@@ -35,6 +35,12 @@ open class FileBrowser: UINavigationController {
         }
     }
     
+    open var isDisplayDirectory = true {
+        didSet {
+            parser.isDisplayDirectory = isDisplayDirectory
+        }
+    }
+    
     /// Override default preview and actionsheet behaviour in favour of custom file handling.
     open var didSelectFile: ((FBFile) -> ())? {
         didSet {

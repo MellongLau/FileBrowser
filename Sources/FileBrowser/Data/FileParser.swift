@@ -38,6 +38,8 @@ public class FileParser {
         }
     }
     
+    var isDisplayDirectory = true
+    
     var excludesFilepaths: [URL]?
     
     let fileManager = FileManager.default
@@ -59,6 +61,10 @@ public class FileParser {
         for filePath in filePaths {
             let file = FBFile(filePath: filePath)
             if let excludesFileExtensions = excludesFileExtensions, let fileExtensions = file.fileExtension , excludesFileExtensions.contains(fileExtensions) {
+                continue
+            }
+            
+            if file.isDirectory, !isDisplayDirectory {
                 continue
             }
             
