@@ -86,7 +86,7 @@ let package = Package(
 
 ### Setting up with [CocoaPods](http://cocoapods.org/?q=FileBrowser)
 ```ruby
-pod 'FileBrowser', git: 'https://github.com/Nuglif/FileBrowser'
+pod 'FileBrowser', git: 'https://github.com/MellongLau/FileBrowser'
 ```
 
 ### Setting up with Carthage
